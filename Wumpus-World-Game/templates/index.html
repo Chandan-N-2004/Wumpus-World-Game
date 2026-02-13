@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wumpus World</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<h1>Wumpus World</h1>
+
+<div id="hud" class="score">
+    Score: <span id="score">0</span>
+</div>
+
+
+<div id="grid"></div>
+
+<div id="statusBox" class="status info">
+    You enter the cave. Find the gold and return alive!
+</div>
+
+<div id="senseBox" class="sense">
+    No percepts yet.
+</div>
+
+<div class="pad">
+    <button class="pad-btn" onclick="moveDir('up')">▲</button>
+    <div class="row">
+        <button class="pad-btn" onclick="moveDir('left')">◀</button>
+        <button class="pad-btn" onclick="moveDir('down')">▼</button>
+        <button class="pad-btn" onclick="moveDir('right')">▶</button>
+    </div>
+</div>
+
+<div class="actions">
+    <button class="gold" onclick="grab()">🪙 Grab</button>
+    <button class="purple" onclick="shootMode()">🏹 Shoot</button>
+    <button class="exit" onclick="climb()">🚪 Climb Out</button>
+    <button class="new" onclick="newGame()">🔄 New Game</button>
+</div>
+
+<button id="themeToggle">🌙</button>
+
+
+<script src="/static/game.js?v=9"></script>
+
+<div id="rulesPopup" class="popup">
+  <div class="popup-content">
+    <h2>🎮 Wumpus World Rules</h2>
+    <ul>
+      <li>Find the gold and return safely.</li>
+      <li>Avoid pits and the Wumpus.</li>
+      <li>You have only ONE arrow.</li>
+      <li>Breeze = pit nearby.</li>
+      <li>Stench = Wumpus nearby.</li>
+      <li>Grab gold → climb out to win.</li>
+    </ul>
+    <button onclick="startGame()">Start Game</button>
+  </div>
+</div>
+
+<script>
+function startGame(){
+    document.getElementById("rulesPopup").style.display = "none";
+}
+</script>
+
+</body>
+</html>
